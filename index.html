@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gorfti Gold — Bijouterie</title>
+<link rel="icon" type="image/png" href="images/logo-black.png">
+<link rel="canonical" href="https://gorftigold.github.io">
+<meta name="description" content="Gorfti Gold — Bijouterie familiale depuis 1970. Bagues, colliers et boucles d'oreilles en or. Boutiques à Guercif et Casablanca.">
+<meta property="og:title" content="Gorfti Gold — Bijouterie">
+<meta property="og:description" content="3 générations au service de l'or.">
+<meta property="og:url" content="https://gorftigold.github.io">
+<meta property="og:image" content="https://gorftigold.github.io/images/logo-white.png">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:      #0a0a0a;
+  --gold:       #b8973a;
+  --gold-light: #d4af5a;
+  --cream:      #f5f0e8;
+  --text-dark:  #1a1a1a;
+  --text-muted: #6b6055;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Cormorant Garamond',serif; background:var(--black); color:#fff; overflow-x:hidden; }
+a { text-decoration:none; color:inherit; }
+
+.divider { width:60px; height:1px; background:var(--gold); margin:0 auto; }
+
+/* NAV */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  padding:1.2rem 2.5rem;
+  display:flex; align-items:center; justify-content:space-between;
+  transition:background .4s,backdrop-filter .4s;
+}
+nav.scrolled { background:rgba(10,10,10,.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(184,151,58,.12); }
+.nav-logo { height:36px; object-fit:contain; }
+.nav-links { display:flex; gap:2.5rem; list-style:none; }
+.nav-links a { font-family:'Cinzel',serif; font-size:.65rem; letter-spacing:.3em; text-transform:uppercase; color:rgba(255,255,255,.6); transition:color .2s; }
+.nav-links a:hover { color:var(--gold); }
+@media(max-width:600px){ .nav-links{display:none;} nav{padding:1rem 1.5rem;} }
+
+/* HERO */
+#hero {
+  min-height:100vh; background:var(--black);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  position:relative; overflow:hidden;
+}
+#hero::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 70% 60% at 50% 50%, rgba(184,151,58,.12) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-logo { width:180px; height:180px; object-fit:contain; animation:fadeInDown 1.2s ease forwards; opacity:0; }
+.hero-tagline { font-family:'Cinzel',serif; font-size:clamp(.6rem,1.5vw,.85rem); letter-spacing:.4em; color:var(--gold); text-transform:uppercase; margin-top:2rem; animation:fadeInUp 1.2s ease .4s forwards; opacity:0; }
+.hero-title { font-family:'Cinzel',serif; font-weight:300; font-size:clamp(1.8rem,5vw,3.5rem); letter-spacing:.15em; text-align:center; line-height:1.3; margin-top:1rem; animation:fadeInUp 1.2s ease .6s forwards; opacity:0; }
+.hero-title span { color:var(--gold); font-style:italic; }
+.hero-subtitle { font-size:clamp(.9rem,2vw,1.1rem); font-weight:300; color:rgba(255,255,255,.5); letter-spacing:.2em; margin-top:1.2rem; animation:fadeInUp 1.2s ease .8s forwards; opacity:0; }
+.hero-scroll { position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:.5rem; animation:fadeIn 2s ease 1.5s forwards; opacity:0; }
+.hero-scroll span { font-size:.65rem; letter-spacing:.3em; color:var(--gold); text-transform:uppercase; }
+.scroll-line { width:1px; height:40px; background:linear-gradient(to bottom,var(--gold),transparent); animation:scrollPulse 2s ease infinite; }
+
+@keyframes fadeInDown { from{opacity:0;transform:translateY(-30px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeInUp   { from{opacity:0;transform:translateY(20px)}  to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn     { from{opacity:0} to{opacity:1} }
+@keyframes scrollPulse{ 0%,100%{opacity:1;transform:scaleY(1)} 50%{opacity:.4;transform:scaleY(.6)} }
+
+/* ABOUT */
+#about { background:var(--cream); color:var(--text-dark); padding:7rem 2rem; text-align:center; }
+.about-inner { max-width:720px; margin:0 auto; }
+.section-label { font-family:'Cinzel',serif; font-size:.7rem; letter-spacing:.4em; color:var(--gold); text-transform:uppercase; margin-bottom:1.5rem; }
+.about-headline { font-family:'Cinzel',serif; font-weight:400; font-size:clamp(1.8rem,4vw,2.8rem); line-height:1.25; margin-bottom:.5rem; }
+.about-headline span { color:var(--gold); font-style:italic; }
+.about-years { font-size:.8rem; letter-spacing:.35em; color:var(--text-muted); margin:1.5rem 0; }
+.about-text { font-size:clamp(1rem,2vw,1.2rem); font-weight:300; line-height:1.9; color:var(--text-muted); margin-top:2rem; }
+.about-pillars { display:flex; justify-content:center; gap:3rem; margin-top:3.5rem; flex-wrap:wrap; }
+.pillar { display:flex; flex-direction:column; align-items:center; gap:.6rem; }
+.pillar-number { font-family:'Cinzel',serif; font-size:2rem; font-weight:300; color:var(--gold); }
+.pillar-label { font-size:.7rem; letter-spacing:.25em; text-transform:uppercase; color:var(--text-muted); }
+
+/* PRODUCTS */
+#products { background:var(--black); padding:7rem 2rem; text-align:center; }
+.products-title { font-family:'Cinzel',serif; font-weight:300; font-size:clamp(1.5rem,3vw,2.2rem); letter-spacing:.1em; margin-bottom:1.5rem; }
+.products-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; max-width:1100px; margin:4rem auto 0; }
+@media(max-width:768px){ .products-grid{grid-template-columns:1fr; max-width:400px;} }
+
+.carousel-card { background:#111; border:1px solid rgba(184,151,58,.2); }
+.carousel-card-title { font-family:'Cinzel',serif; font-size:.75rem; letter-spacing:.3em; color:var(--gold); text-transform:uppercase; padding:1.2rem 1.5rem 1rem; border-bottom:1px solid rgba(184,151,58,.15); text-align:left; }
+.carousel-viewport { position:relative; overflow:hidden; aspect-ratio:3/4; }
+.carousel-track { display:flex; transition:transform .5s cubic-bezier(.4,0,.2,1); height:100%; width:100%; }
+.carousel-slide { min-width:100%; max-width:100%; flex-shrink:0; }
+.carousel-slide { min-width:100%; height:100%; flex-shrink:0; background:#1a1a1a; display:flex; align-items:center; justify-content:center; }
+.carousel-slide img { width:100%; height:100%; object-fit:cover; display:block; }
+.carousel-placeholder { display:flex; align-items:center; justify-content:center; height:100%; color:rgba(255,255,255,.15); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; }
+.carousel-controls { display:flex; align-items:center; justify-content:space-between; padding:1rem 1.5rem; }
+.carousel-btn { background:none; border:1px solid rgba(184,151,58,.3); color:var(--gold); width:32px; height:32px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s; font-size:.9rem; }
+.carousel-btn:hover { background:rgba(184,151,58,.1); border-color:var(--gold); }
+.carousel-dots { display:flex; gap:6px; }
+.dot { width:5px; height:5px; border-radius:50%; background:rgba(184,151,58,.3); transition:background .3s; }
+.dot.active { background:var(--gold); }
+
+/* LOCATIONS */
+#locations { background:var(--cream); color:var(--text-dark); padding:7rem 2rem; }
+.locations-inner { max-width:1100px; margin:0 auto; }
+.locations-header { text-align:center; margin-bottom:4rem; }
+.locations-title { font-family:'Cinzel',serif; font-weight:400; font-size:clamp(1.5rem,3vw,2.2rem); }
+.locations-layout { display:grid; grid-template-columns:1fr 1.6fr; gap:3rem; align-items:start; }
+@media(max-width:768px){ .locations-layout{grid-template-columns:1fr;} }
+.store-list { display:flex; flex-direction:column; gap:1rem; }
+.store-btn { border:1px solid rgba(184,151,58,.3); background:transparent; padding:1.5rem 1.8rem; cursor:pointer; text-align:left; transition:all .3s; position:relative; overflow:hidden; }
+.store-btn::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--gold); transform:scaleY(0); transition:transform .3s; }
+.store-btn.active::before,.store-btn:hover::before { transform:scaleY(1); }
+.store-btn.active { background:rgba(184,151,58,.06); border-color:var(--gold); }
+.store-name { font-family:'Cinzel',serif; font-size:.9rem; letter-spacing:.15em; color:var(--text-dark); margin-bottom:.4rem; }
+.store-city { font-size:.75rem; letter-spacing:.2em; color:var(--gold); text-transform:uppercase; margin-bottom:.6rem; }
+.store-address { font-size:.9rem; color:var(--text-muted); line-height:1.5; }
+.store-badge { display:inline-block; font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--text-muted); border:1px solid rgba(107,96,85,.3); padding:.2rem .6rem; margin-top:.6rem; }
+.map-container { height:420px; border:1px solid rgba(184,151,58,.2); overflow:hidden; }
+.map-container iframe { width:100%; height:100%; border:none; display:block; }
+@media(max-width:768px){ .map-container{height:300px;} }
+
+/* CONTACT */
+#contact { background:var(--black); padding:7rem 2rem; text-align:center; }
+.contact-title { font-family:'Cinzel',serif; font-weight:300; font-size:clamp(1.5rem,3vw,2.2rem); letter-spacing:.1em; margin-bottom:1rem; }
+.contact-subtitle { font-size:1rem; color:rgba(255,255,255,.4); font-weight:300; margin-bottom:3.5rem; letter-spacing:.05em; }
+.contact-links { display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap; max-width:700px; margin:0 auto; }
+.contact-btn { display:flex; align-items:center; gap:1rem; padding:1.2rem 2rem; border:1px solid rgba(184,151,58,.3); background:transparent; color:#fff; font-family:'Cinzel',serif; font-size:.75rem; letter-spacing:.2em; text-transform:uppercase; cursor:pointer; transition:all .3s; text-decoration:none; min-width:200px; justify-content:center; position:relative; overflow:hidden; }
+.contact-btn::before { content:''; position:absolute; inset:0; background:rgba(184,151,58,.08); transform:translateX(-100%); transition:transform .3s; }
+.contact-btn:hover::before { transform:translateX(0); }
+.contact-btn:hover { border-color:var(--gold); color:var(--gold-light); }
+.contact-btn svg { width:18px; height:18px; flex-shrink:0; }
+.contact-btn.disabled { opacity:.4; cursor:default; pointer-events:none; }
+.soon-badge { font-size:.55rem; background:rgba(184,151,58,.2); color:var(--gold); padding:.15rem .5rem; letter-spacing:.15em; }
+@media(max-width:600px){ .contact-links{flex-direction:column; align-items:center;} .contact-btn{width:100%; max-width:320px;} }
+
+/* FOOTER */
+footer { background:#050505; border-top:1px solid rgba(184,151,58,.15); padding:2rem; text-align:center; }
+.footer-logo { width:50px; height:50px; object-fit:contain; margin-bottom:1rem; opacity:.7; }
+.footer-text { font-family:'Cinzel',serif; font-size:.6rem; letter-spacing:.35em; color:rgba(255,255,255,.25); text-transform:uppercase; }
+</style>
+</head>
+<body>
+
+<nav>
+  <img src="images/logo-white.png" alt="Gorfti Gold" class="nav-logo">
+  <ul class="nav-links">
+    <li><a href="#about">Histoire</a></li>
+    <li><a href="#products">Collections</a></li>
+    <li><a href="#locations">Boutiques</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <img src="images/logo-white.png" alt="Gorfti Gold" class="hero-logo">
+  <p class="hero-tagline">Une famille · Un héritage</p>
+  <h1 class="hero-title">3 Générations<br><span>d'Or</span></h1>
+  <p class="hero-subtitle">1970 · 1987 · 2026</p>
+  <div class="hero-scroll">
+    <span>Découvrir</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-inner">
+    <p class="section-label">Notre histoire</p>
+    <div class="divider" style="margin-bottom:2rem"></div>
+    <h2 class="about-headline">Trois générations<br>au service de <span>l'or</span></h2>
+    <p class="about-years">1970 · 1987 · 2026</p>
+    <div class="divider" style="margin-bottom:2rem"></div>
+    <p class="about-text">
+      Depuis 1970, la famille Gorfti perpétue un savoir-faire d'exception dans l'art de l'or.
+      Fondée à Guercif, notre maison s'est transmise de génération en génération, alliant tradition
+      artisanale et exigence du luxe moderne. Chaque pièce que nous créons porte l'héritage
+      de trois générations de passion et d'expertise.
+    </p>
+    <div class="about-pillars">
+      <div class="pillar">
+        <span class="pillar-number">3</span>
+        <span class="pillar-label">Générations</span>
+      </div>
+      <div class="pillar">
+        <span class="pillar-number">50+</span>
+        <span class="pillar-label">Années d'expérience</span>
+      </div>
+      <div class="pillar">
+        <span class="pillar-number">1</span>
+        <span class="pillar-label">Boutiques</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="products">
+  <p class="section-label">Nos créations</p>
+  <div class="divider" style="margin-bottom:1.5rem"></div>
+  <h2 class="products-title">Collections</h2>
+  <div class="products-grid">
+
+    <div class="carousel-card" id="carousel-bagues">
+      <div class="carousel-card-title">Bagues</div>
+      <div class="carousel-viewport">
+        <div class="carousel-track"></div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn prev">←</button>
+        <div class="carousel-dots"></div>
+        <button class="carousel-btn next">→</button>
+      </div>
+    </div>
+
+    <div class="carousel-card" id="carousel-colliers">
+      <div class="carousel-card-title">Colliers</div>
+      <div class="carousel-viewport">
+        <div class="carousel-track"></div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn prev">←</button>
+        <div class="carousel-dots"></div>
+        <button class="carousel-btn next">→</button>
+      </div>
+    </div>
+
+    <div class="carousel-card" id="carousel-boucles">
+      <div class="carousel-card-title">Boucles d'oreilles</div>
+      <div class="carousel-viewport">
+        <div class="carousel-track"></div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn prev">←</button>
+        <div class="carousel-dots"></div>
+        <button class="carousel-btn next">→</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="locations">
+  <div class="locations-inner">
+    <div class="locations-header">
+      <p class="section-label">Nos boutiques</p>
+      <div class="divider" style="margin-bottom:1.5rem"></div>
+      <h2 class="locations-title">Découvrez nos magasins</h2>
+    </div>
+    <div class="locations-layout">
+      <div class="store-list">
+        <button class="store-btn active" onclick="showMap(0)">
+          <div class="store-name">Gorfti Gold Guercif</div>
+          <div class="store-city">Guercif</div>
+          <div class="store-address">31 Rue de la Résistance<br>Guercif 35500, Maroc</div>
+        </button>
+        <button class="store-btn" onclick="showMap(1)">
+          <div class="store-name">Gorfti Gold Casa</div>
+          <div class="store-city">Casablanca</div>
+          <div class="store-address">Casablanca, Maroc</div>
+          <span class="store-badge">Bientôt</span>
+        </button>
+      </div>
+      <div class="map-container">
+        <iframe id="map-frame"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.2!2d-3.3567!3d34.2333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd9d9347d2c099bd%3A0x9305795b15e3554!2s31%20Rue%20de%20la%20R%C3%A9sistance%2C%20Guercif%2035500%2C%20Maroc!5e0!3m2!1sfr!2sma!4v1"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <p class="section-label">Nous rejoindre</p>
+  <div class="divider" style="margin-bottom:1.5rem"></div>
+  <h2 class="contact-title">Contactez-nous</h2>
+  <p class="contact-subtitle">Retrouvez-nous sur nos réseaux ou visitez nos boutiques</p>
+  <div class="contact-links">
+
+    <a href="https://wa.me/212XXXXXXXXX" class="contact-btn" target="_blank">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+
+    <a href="https://www.instagram.com/gorfti.gold" class="contact-btn" target="_blank">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      Instagram
+    </a>
+
+    <a href="liens.html" class="contact-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+      Tous nos liens
+    </a>
+
+    <a class="contact-btn disabled">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
+      Site officiel
+      <span class="soon-badge">Bientôt</span>
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  <img src="images/logo-white.png" alt="Gorfti Gold" class="footer-logo">
+  <p class="footer-text">Gorfti Gold © 2026 — Tous droits réservés</p>
+</footer>
+
+<script src="carousel.js"></script>
+<script>
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+function showMap(i) {
+  const maps = [
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.2!2d-3.3567!3d34.2333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd9d9347d2c099bd%3A0x9305795b15e3554!2s31%20Rue%20de%20la%20R%C3%A9sistance%2C%20Guercif%2035500%2C%20Maroc!5e0!3m2!1sfr!2sma!4v1',
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106376!2d-7.5898!3d33.5731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd4778aa113b%3A0xb06c1d84f310fd3!2sCasablanca%2C%20Maroc!5e0!3m2!1sfr!2sma!4v1'
+  ];
+  document.getElementById('map-frame').src = maps[i];
+  document.querySelectorAll('.store-btn').forEach((b, j) => b.classList.toggle('active', j === i));
+}
+</script>
+</body>
+</html>
